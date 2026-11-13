@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SGTP · Portfólio do Projeto de Estágio</title>
+<meta name="description" content="Portfólio do projeto de estágio SGTP – Sistema de Gerenciamento de Tarefas e Projetos, de João Pedro De Souza Marin.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --fundo: #f4f6fa; --painel: #ffffff; --painel-2: #eef1f7; --linha: #d7dce6;
+    --texto: #131a2a; --suave: #55607a; --marca: #1f6feb; --marca-tinta: #ffffff;
+    --ok: #1a7f4b; --ok-fundo: #dff3e7; --andamento: #9a6200; --andamento-fundo: #fbeccb;
+    --previsto: #55607a; --previsto-fundo: #e6e9f0; --sombra: 0 1px 2px rgba(19,26,42,.06), 0 8px 24px rgba(19,26,42,.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --fundo: #0e1422; --painel: #151d30; --painel-2: #1a2440; --linha: #27324d;
+      --texto: #e8ecf5; --suave: #98a3bd; --marca: #6ea8ff; --marca-tinta: #0e1422;
+      --ok: #5fd39a; --ok-fundo: #143326; --andamento: #f0b95a; --andamento-fundo: #3a2c10;
+      --previsto: #98a3bd; --previsto-fundo: #222c45; --sombra: none;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+  body { margin: 0; background: var(--fundo); color: var(--texto); font: 400 17px/1.65 "IBM Plex Sans", system-ui, sans-serif; }
+  h1, h2, h3 { font-family: "Space Grotesk", system-ui, sans-serif; line-height: 1.15; margin: 0; text-wrap: balance; }
+  p { margin: 0 0 1em; max-width: 68ch; }
+  a { color: var(--marca); }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--marca); outline-offset: 3px; border-radius: 6px; }
+  .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; }
+  .caixa { width: min(1120px, 100% - 32px); margin-inline: auto; }
+
+  /* navegação */
+  .topo { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--fundo) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--linha); }
+  .topo .caixa { display: flex; align-items: center; gap: 20px; min-height: 60px; }
+  .logo { font: 700 18px "Space Grotesk", sans-serif; color: var(--texto); text-decoration: none; letter-spacing: .02em; }
+  .logo span { color: var(--marca); }
+  .topo nav { display: flex; gap: 4px; overflow-x: auto; margin-left: auto; scrollbar-width: none; }
+  .topo nav a { white-space: nowrap; padding: 8px 10px; border-radius: 8px; color: var(--suave); text-decoration: none; font-size: 15px; }
+  .topo nav a:hover { color: var(--texto); background: var(--painel-2); }
+
+  /* início */
+  .inicio { padding: 72px 0 56px; }
+  .rotulo { font: 500 13px "IBM Plex Mono", monospace; letter-spacing: .12em; text-transform: uppercase; color: var(--marca); margin-bottom: 14px; }
+  .inicio h1 { font-size: clamp(38px, 6.4vw, 72px); letter-spacing: -.02em; }
+  .inicio .sub { font-size: clamp(19px, 2.2vw, 23px); color: var(--suave); margin: 18px 0 0; max-width: 46ch; }
+  .inicio-grade { display: grid; grid-template-columns: 1.05fr .95fr; gap: 48px; align-items: end; }
+  .objetivo { margin-top: 30px; padding-left: 18px; border-left: 3px solid var(--marca); }
+  .objetivo strong { display: block; font-family: "Space Grotesk", sans-serif; }
+
+  /* quadro de status (assinatura do projeto) */
+  .quadro { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .coluna { background: var(--painel); border: 1px solid var(--linha); border-radius: 12px; padding: 12px; box-shadow: var(--sombra); }
+  .coluna h3 { font: 500 12px "IBM Plex Mono", monospace; letter-spacing: .1em; text-transform: uppercase; color: var(--suave); display: flex; justify-content: space-between; margin-bottom: 10px; }
+  .cartao { display: block; background: var(--painel-2); border-radius: 8px; padding: 9px 10px; margin-top: 8px; font-size: 14px; line-height: 1.3; border-left: 3px solid var(--previsto); color: var(--texto); text-decoration: none; }
+  .cartao:hover { filter: brightness(1.04); }
+  .cartao b { display: block; font: 500 12px "IBM Plex Mono", monospace; color: var(--suave); }
+  .col-ok .cartao { border-left-color: var(--ok); }
+  .col-andamento .cartao { border-left-color: var(--andamento); }
+
+  /* seções */
+  section { padding: 64px 0; border-top: 1px solid var(--linha); }
+  .cab { display: flex; align-items: baseline; gap: 14px; margin-bottom: 28px; }
+  .cab .num { font: 500 14px "IBM Plex Mono", monospace; color: var(--marca); }
+  .cab h2 { font-size: clamp(27px, 3.4vw, 38px); letter-spacing: -.01em; }
+  .duas { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  h3.tit { font-size: 20px; margin: 0 0 10px; }
+
+  .tecs { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; margin: 0; padding: 0; list-style: none; }
+  .tecs li { background: var(--painel); border: 1px solid var(--linha); border-radius: 12px; padding: 14px 16px; }
+  .tecs b { display: block; font-family: "Space Grotesk", sans-serif; }
+  .tecs span { color: var(--suave); font-size: 15px; }
+
+  .camadas { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 10px; align-items: stretch; margin-top: 8px; }
+  .camada { background: var(--painel); border: 1px solid var(--linha); border-radius: 12px; padding: 16px; }
+  .camada b { font-family: "Space Grotesk", sans-serif; display: block; }
+  .camada span { color: var(--suave); font-size: 15px; }
+  .seta { align-self: center; color: var(--suave); font: 500 13px "IBM Plex Mono", monospace; text-align: center; }
+
+  /* casos de uso */
+  .ucs { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 14px; }
+  .uc { background: var(--painel); border: 1px solid var(--linha); border-radius: 14px; padding: 18px 20px; box-shadow: var(--sombra); }
+  .uc header { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .uc .id { font: 500 13px "IBM Plex Mono", monospace; color: var(--suave); }
+  .uc h3 { font-size: 20px; margin-bottom: 8px; }
+  .uc p { font-size: 16px; margin: 0; color: var(--suave); }
+  .uc .ator { margin-top: 10px; font-size: 14px; }
+  .selo { font: 500 12px "IBM Plex Mono", monospace; padding: 3px 9px; border-radius: 999px; white-space: nowrap; }
+  .selo.ok { color: var(--ok); background: var(--ok-fundo); }
+  .selo.andamento { color: var(--andamento); background: var(--andamento-fundo); }
+  .selo.previsto { color: var(--previsto); background: var(--previsto-fundo); }
+
+  .rolagem { overflow-x: auto; border: 1px solid var(--linha); border-radius: 14px; background: var(--painel); margin-top: 16px; }
+  table { border-collapse: collapse; width: 100%; min-width: 640px; font-size: 16px; }
+  th, td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--linha); vertical-align: top; }
+  th { font: 500 12px "IBM Plex Mono", monospace; letter-spacing: .1em; text-transform: uppercase; color: var(--suave); background: var(--painel-2); }
+  tr:last-child td { border-bottom: 0; }
+  td.data { font-family: "IBM Plex Mono", monospace; font-size: 15px; white-space: nowrap; }
+  .nota { color: var(--suave); font-size: 15px; margin-top: 14px; }
+
+  /* documentação */
+  .docs { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 14px; }
+  .doc { display: flex; flex-direction: column; background: var(--painel); border: 1px solid var(--linha); border-radius: 14px; overflow: hidden; text-decoration: none; color: var(--texto); box-shadow: var(--sombra); transition: transform .15s ease; }
+  .doc:hover { transform: translateY(-2px); border-color: var(--marca); }
+  .doc .mini { aspect-ratio: 16 / 10; background: #ffffff; overflow: hidden; border-bottom: 1px solid var(--linha); }
+  .doc .mini img { width: 100%; height: 100%; object-fit: cover; object-position: top left; display: block; }
+  .doc .txt { padding: 12px 14px 14px; }
+  .doc b { font-family: "Space Grotesk", sans-serif; display: block; }
+  .doc span { color: var(--suave); font-size: 14px; }
+  .grupo { font: 500 13px "IBM Plex Mono", monospace; letter-spacing: .1em; text-transform: uppercase; color: var(--suave); margin: 30px 0 12px; }
+  .grupo:first-of-type { margin-top: 0; }
+  .lista-specs { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 10px; padding: 0; margin: 0; list-style: none; }
+  .lista-specs a { display: block; padding: 12px 14px; background: var(--painel); border: 1px solid var(--linha); border-radius: 10px; text-decoration: none; color: var(--texto); }
+  .lista-specs a:hover { border-color: var(--marca); }
+  .lista-specs b { font: 500 13px "IBM Plex Mono", monospace; color: var(--marca); display: block; }
+
+  /* telas e vídeo */
+  .telas { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; }
+  .tela { margin: 0; background: var(--painel); border: 1px solid var(--linha); border-radius: 14px; overflow: hidden; }
+  .tela a { display: block; aspect-ratio: 16 / 9; background: var(--painel-2); }
+  .tela img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+  .tela figcaption { padding: 12px 14px; font-size: 15px; }
+  .tela figcaption b { font-family: "Space Grotesk", sans-serif; display: block; }
+  .tela figcaption span { color: var(--suave); }
+  .video { margin-top: 28px; aspect-ratio: 16 / 9; border-radius: 14px; overflow: hidden; border: 1px solid var(--linha); background: var(--painel-2); }
+  .video iframe, .video video { width: 100%; height: 100%; border: 0; display: block; }
+  .pendente { display: grid; place-items: center; height: 100%; padding: 20px; text-align: center; color: var(--suave); font: 500 14px "IBM Plex Mono", monospace; }
+
+  /* relatório e identificação */
+  .botao { display: inline-flex; align-items: center; gap: 10px; background: var(--marca); color: var(--marca-tinta); padding: 13px 20px; border-radius: 10px; text-decoration: none; font-weight: 600; }
+  .botao:hover { filter: brightness(1.08); }
+  .pdf { margin-top: 24px; height: min(80vh, 900px); border: 1px solid var(--linha); border-radius: 14px; overflow: hidden; background: var(--painel-2); }
+  .pdf iframe { width: 100%; height: 100%; border: 0; display: block; }
+  .entregas { margin: 0; padding-left: 22px; max-width: 72ch; }
+  .entregas li { margin-bottom: 8px; }
+  .ficha { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0; background: var(--painel); border: 1px solid var(--linha); border-radius: 14px; margin: 0; overflow: hidden; }
+  .ficha div { padding: 18px 20px; border-right: 1px solid var(--linha); }
+  .ficha div:last-child { border-right: 0; }
+  .ficha dt { font: 500 12px "IBM Plex Mono", monospace; letter-spacing: .1em; text-transform: uppercase; color: var(--suave); }
+  .ficha dd { margin: 4px 0 0; font: 500 19px "Space Grotesk", sans-serif; }
+  footer { padding: 28px 0 44px; color: var(--suave); font-size: 14px; border-top: 1px solid var(--linha); }
+
+  @media (max-width: 860px) {
+    .inicio-grade, .duas { grid-template-columns: 1fr; gap: 32px; }
+    .camadas { grid-template-columns: 1fr; }
+    .seta { transform: rotate(90deg); }
+    .inicio { padding-top: 48px; }
+    .ficha div { border-right: 0; border-bottom: 1px solid var(--linha); }
+    .ficha div:last-child { border-bottom: 0; }
+  }
+  @media (max-width: 520px) { .quadro { grid-template-columns: 1fr; } .ucs, .telas { grid-template-columns: 1fr; } }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .doc { transition: none; } }
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="caixa">
+    <a class="logo" href="#inicio">SG<span>TP</span></a>
+    <nav aria-label="Seções do portfólio">
+      <a href="#sobre">Sobre</a>
+      <a href="#casos-de-uso">Casos de uso</a>
+      <a href="#documentacao">Documentação</a>
+      <a href="#telas">Telas e vídeo</a>
+      <a href="#relatorio">Relatório</a>
+      <a href="#aluno">Aluno</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- 1. PÁGINA INICIAL -->
+<div class="inicio caixa" id="inicio">
+  <div class="inicio-grade">
+    <div>
+      <p class="rotulo">Portfólio do Projeto de Estágio</p>
+      <h1>Sistema de Gerenciamento de Tarefas e Projetos</h1>
+      <p class="sub">Um lugar só para cadastrar projetos, organizar o backlog, acompanhar o andamento das tarefas e enxergar gargalos da equipe.</p>
+      <div class="objetivo">
+        <strong>Objetivo do sistema</strong>
+        <p>Centralizar o gerenciamento de tarefas e projetos em uma ferramenta simples e intuitiva, dando aos gestores uma visão consolidada das demandas sem exigir treinamento ou conhecimento avançado em metodologias de gestão.</p>
+      </div>
+    </div>
+
+    <div class="quadro" aria-label="Situação dos casos de uso">
+      <div class="coluna col-ok">
+        <h3>Concluído <span>4</span></h3>
+        <a class="cartao" href="#uc01"><b>UC01</b>Gerenciar Projetos</a>
+        <a class="cartao" href="#uc02"><b>UC02</b>Gerenciar Backlog Operacional</a>
+        <a class="cartao" href="#uc03"><b>UC03</b>Atualizar Andamento da Tarefa</a>
+        <a class="cartao" href="#uc04"><b>UC04</b>Visualizar Fluxo Operacional</a>
+      </div>
+      <div class="coluna col-andamento">
+        <h3>Em andamento <span>1</span></h3>
+        <a class="cartao" href="#uc06"><b>UC06</b>Visualizar Relatórios Executivos</a>
+      </div>
+      <div class="coluna">
+        <h3>Previsto <span>1</span></h3>
+        <a class="cartao" href="#uc05"><b>UC05</b>Gerar Relatório de Produtividade</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 2. SOBRE O PROJETO -->
+<section id="sobre">
+  <div class="caixa">
+    <div class="cab"><span class="num">02</span><h2>Sobre o projeto</h2></div>
+    <div class="duas">
+      <div>
+        <h3 class="tit">O problema</h3>
+        <p>Muitas equipes controlam suas demandas em planilhas, aplicativos de mensagens e documentos compartilhados. Com a informação espalhada, fica difícil acompanhar as atividades, identificar prioridades, monitorar prazos e saber quem está sobrecarregado.</p>
+        <p>Ferramentas como Jira, Trello e Microsoft Planner resolvem isso, mas trazem configuração complexa e excesso de recursos para pequenas empresas, equipes acadêmicas e grupos de trabalho.</p>
+      </div>
+      <div>
+        <h3 class="tit">A solução</h3>
+        <p>O SGTP reúne em uma aplicação web o cadastro de projetos, o backlog de tarefas com prioridade e responsável, a atualização de andamento com regras de transição de status e um painel com indicadores operacionais.</p>
+        <p>Projetos e tarefas usam exclusão lógica: nada é apagado do banco, e o que foi excluído pode ser restaurado. Toda alteração em uma tarefa fica registrada em um histórico de atividades.</p>
+      </div>
+    </div>
+
+    <h3 class="tit" style="margin-top:36px">Tecnologias utilizadas</h3>
+    <ul class="tecs">
+      <li><b>React 18 + TypeScript</b><span>Interface do usuário (HTML5 e CSS3)</span></li>
+      <li><b>Node.js + Express</b><span>API REST e regras de negócio</span></li>
+      <li><b>MySQL 8</b><span>Banco de dados relacional</span></li>
+      <li><b>Git e GitHub</b><span>Controle de versão e repositório</span></li>
+      <li><b>Astah Community</b><span>Diagramas UML</span></li>
+      <li><b>Bizagi Modeler</b><span>Workflow em BPMN 2.0</span></li>
+      <li><b>Figma</b><span>Prototipação das telas</span></li>
+      <li><b>MySQL Workbench</b><span>Modelagem e administração do banco</span></li>
+    </ul>
+
+    <h3 class="tit" style="margin-top:36px">Arquitetura</h3>
+    <p>A aplicação é organizada em três camadas. A interface não implementa regras de negócio, e o acesso aos dados fica isolado em repositórios.</p>
+    <div class="camadas">
+      <div class="camada"><b>Interface</b><span>Aplicação React no navegador: telas de projetos, tarefas, painel e relatórios.</span></div>
+      <div class="seta">HTTP · JSON</div>
+      <div class="camada"><b>API</b><span>Node.js + Express: controllers com as validações e repositories com as consultas.</span></div>
+      <div class="seta">TCP 3306</div>
+      <div class="camada"><b>Banco de dados</b><span>MySQL com as tabelas usuario, projeto, tarefa e historico_atividade.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. CASOS DE USO E CRONOGRAMA -->
+<section id="casos-de-uso">
+  <div class="caixa">
+    <div class="cab"><span class="num">03</span><h2>Casos de uso e cronograma</h2></div>
+
+    <div class="ucs">
+      <article class="uc" id="uc01">
+        <header><span class="id">UC01</span><span class="selo ok">Concluído</span></header>
+        <h3>Gerenciar Projetos</h3>
+        <p>Cadastrar, consultar, editar, excluir e restaurar projetos, definindo status, prioridade e responsável. A exclusão é lógica e informa antes a quantidade de tarefas vinculadas.</p>
+        <p class="ator mono">Atores: Administrador, Gerenciador de Projetos</p>
+      </article>
+      <article class="uc" id="uc02">
+        <header><span class="id">UC02</span><span class="selo ok">Concluído</span></header>
+        <h3>Gerenciar Backlog Operacional</h3>
+        <p>Cadastrar, consultar, filtrar, editar, excluir e restaurar tarefas dos projetos, com prioridade, prazo e responsável. Toda operação é registrada no histórico de atividades.</p>
+        <p class="ator mono">Ator: Gerenciador de Projetos</p>
+      </article>
+      <article class="uc" id="uc03">
+        <header><span class="id">UC03</span><span class="selo ok">Concluído</span></header>
+        <h3>Atualizar Andamento da Tarefa</h3>
+        <p>O responsável altera o status da tarefa entre Pendente, Em Andamento, Bloqueada e Concluída, respeitando as transições do diagrama de estados. Bloquear exige o motivo do impedimento.</p>
+        <p class="ator mono">Ator: Colaborador</p>
+      </article>
+      <article class="uc" id="uc04">
+        <header><span class="id">UC04</span><span class="selo ok">Concluído</span></header>
+        <h3>Visualizar Fluxo Operacional</h3>
+        <p>Painel com a situação atual: projetos ativos, tarefas por status, entregas críticas dos próximos 14 dias, carga por responsável, tempo médio de conclusão e atividades recentes.</p>
+        <p class="ator mono">Ator: Gerenciador de Projetos</p>
+      </article>
+      <article class="uc" id="uc05">
+        <header><span class="id">UC05</span><span class="selo previsto">Previsto</span></header>
+        <h3>Gerar Relatório de Produtividade</h3>
+        <p>Extensão opcional do UC06: gera um relatório detalhado de um período, com tarefas concluídas por colaborador, atrasos, bloqueios e tempo médio de conclusão, com exportação em PDF.</p>
+        <p class="ator mono">Ator: Gerenciador de Projetos · estende o UC06</p>
+      </article>
+      <article class="uc" id="uc06">
+        <header><span class="id">UC06</span><span class="selo andamento">Em andamento</span></header>
+        <h3>Visualizar Relatórios Executivos</h3>
+        <p>Indicadores consolidados de um período no módulo de Relatórios: taxa de conclusão dos projetos, tempo médio de conclusão, atrasos e capacidade de cada colaborador.</p>
+        <p class="ator mono">Ator: Gerenciador de Projetos</p>
+      </article>
+    </div>
+
+    <h3 class="tit" style="margin-top:40px">Cronograma de desenvolvimento</h3>
+    <div class="rolagem">
+      <!-- AJUSTE AS DATAS DESTA TABELA conforme o seu cronograma real -->
+      <table>
+        <thead><tr><th>Caso de uso</th><th>Situação</th><th>Conclusão ou previsão</th><th>Observação</th></tr></thead>
+        <tbody>
+          <tr><td><b>UC02</b> · Gerenciar Backlog Operacional</td><td><span class="selo ok">Concluído</span></td><td class="data">30/09/2026</td><td>Exclusão lógica e restauração incluídas em 11/2026</td></tr>
+          <tr><td><b>UC04</b> · Visualizar Fluxo Operacional</td><td><span class="selo ok">Concluído</span></td><td class="data">30/10/2026</td><td>Tempo médio de conclusão calculado a partir de 11/2026</td></tr>
+          <tr><td><b>UC01</b> · Gerenciar Projetos</td><td><span class="selo ok">Concluído</span></td><td class="data">13/11/2026</td><td>Com exclusão lógica e restauração</td></tr>
+          <tr><td><b>UC03</b> · Atualizar Andamento da Tarefa</td><td><span class="selo ok">Concluído</span></td><td class="data">13/11/2026</td><td>Validação das transições de status e histórico</td></tr>
+          <tr><td><b>UC06</b> · Visualizar Relatórios Executivos</td><td><span class="selo andamento">Em andamento</span></td><td class="data">18/12/2026</td><td>Faltam filtros por projeto e período e o detalhe de indicador</td></tr>
+          <tr><td><b>UC05</b> · Gerar Relatório de Produtividade</td><td><span class="selo previsto">Previsto</span></td><td class="data">29/01/2027</td><td>Depende do UC06 e do controle de acesso por perfil</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="nota">O planejamento inicial previa a implementação do UC01 e do UC02 primeiro. Durante o estágio, o UC04 foi antecipado e o diagrama de caso de uso foi consolidado de 23 para 6 casos de uso; a tabela reflete o andamento atual.</p>
+
+    <h3 class="tit" style="margin-top:36px">Entregas do bimestre</h3>
+    <ol class="entregas">
+      <li>Exclusão lógica de projetos e tarefas, com restauração, no lugar da exclusão em cascata.</li>
+      <li>Atualização do andamento da tarefa (UC03), com validação das transições de status e registro no histórico.</li>
+      <li>Banco de dados ajustado às formas normais, sem <span class="mono">ON DELETE CASCADE</span>, com script de migração.</li>
+      <li>Diagrama de caso de uso revisado: o relatório de produtividade passou de inclusão obrigatória para extensão opcional.</li>
+      <li>Diagramas de sequência refeitos para os casos de uso UC01 a UC04, com ator, fluxos alternativos e exclusão lógica.</li>
+      <li>Diagrama de estados da tarefa e diagrama de classes atualizados para a exclusão lógica.</li>
+      <li>Especificações dos seis casos de uso elaboradas ou revisadas.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- 4. DOCUMENTAÇÃO -->
+<section id="documentacao">
+  <div class="caixa">
+    <div class="cab"><span class="num">04</span><h2>Documentação</h2></div>
+
+    <p class="grupo">Diagramas estruturais e de comportamento</p>
+    <div class="docs">
+      <a class="doc" href="diagramas/caso-de-uso.png" target="_blank" rel="noopener"><div class="mini"><img src="diagramas/caso-de-uso.png" alt="Diagrama de Caso de Uso"></div><div class="txt"><b>Diagrama de Caso de Uso</b><span>3 atores e 6 casos de uso</span></div></a>
+      <a class="doc" href="diagramas/classes.png" target="_blank" rel="noopener"><div class="mini"><img src="diagramas/classes.png" alt="Diagrama de Classes"></div><div class="txt"><b>Diagrama de Classes</b><span>Usuario, Projeto, Tarefa e HistoricoAtividade</span></div></a>
+      <a class="doc" href="diagramas/estados-tarefa.png" target="_blank" rel="noopener"><div class="mini"><img src="diagramas/estados-tarefa.png" alt="Diagrama de Estados da Tarefa"></div><div class="txt"><b>Diagrama de Estados</b><span>Ciclo de vida da Tarefa, com exclusão lógica</span></div></a>
+      <a class="doc" href="diagramas/der.png" target="_blank" rel="noopener"><div class="mini"><img src="diagramas/der.png" alt="Diagrama Entidade-Relacionamento"></div><div class="txt"><b>Diagrama Entidade-Relacionamento</b><span>Modelo físico do banco MySQL</span></div></a>
+      <a class="doc" href="diagramas/implantacao.png" target="_blank" rel="noopener"><div class="mini"><img src="diagramas/implantacao.png" alt="Diagrama de Implantação"></div><div class="txt"><b>Diagrama de Implantação</b><span>Navegador, API e banco de dados</span></div></a>
+      <a class="doc" href="diagramas/workflow-as-is.png" target="_blank" rel="noopener"><div class="mini"><img src="diagramas/workflow-as-is.png" alt="Workflow AS-IS em BPMN"></div><div class="txt"><b>Workflow AS-IS</b><span>Processo atual em BPMN 2.0</span></div></a>
+    </div>
+
+    <p class="grupo">Diagramas de sequência</p>
+    <div class="docs">
+      <a class="doc" href="diagramas/sequencia-uc01.png" target="_blank" rel="noopener"><div class="mini"><img src="diagramas/sequencia-uc01.png" alt="Diagrama de Sequência do UC01"></div><div class="txt"><b>Sequência 01</b><span>Gerenciar Projetos</span></div></a>
+      <a class="doc" href="diagramas/sequencia-uc02.png" target="_blank" rel="noopener"><div class="mini"><img src="diagramas/sequencia-uc02.png" alt="Diagrama de Sequência do UC02"></div><div class="txt"><b>Sequência 02</b><span>Gerenciar Backlog Operacional</span></div></a>
+      <a class="doc" href="diagramas/sequencia-uc03.png" target="_blank" rel="noopener"><div class="mini"><img src="diagramas/sequencia-uc03.png" alt="Diagrama de Sequência do UC03"></div><div class="txt"><b>Sequência 03</b><span>Atualizar Andamento da Tarefa</span></div></a>
+      <a class="doc" href="diagramas/sequencia-uc04.png" target="_blank" rel="noopener"><div class="mini"><img src="diagramas/sequencia-uc04.png" alt="Diagrama de Sequência do UC04"></div><div class="txt"><b>Sequência 04</b><span>Visualizar Fluxo Operacional</span></div></a>
+    </div>
+
+    <p class="grupo">Especificações de caso de uso (PDF)</p>
+    <ul class="lista-specs">
+      <li><a href="docs/Especificacao_UC01.pdf" target="_blank" rel="noopener"><b>UC01</b>Gerenciar Projetos</a></li>
+      <li><a href="docs/Especificacao_UC02.pdf" target="_blank" rel="noopener"><b>UC02</b>Gerenciar Backlog Operacional</a></li>
+      <li><a href="docs/Especificacao_UC03.pdf" target="_blank" rel="noopener"><b>UC03</b>Atualizar Andamento da Tarefa</a></li>
+      <li><a href="docs/Especificacao_UC04.pdf" target="_blank" rel="noopener"><b>UC04</b>Visualizar Fluxo Operacional</a></li>
+      <li><a href="docs/Especificacao_UC05.pdf" target="_blank" rel="noopener"><b>UC05</b>Gerar Relatório de Produtividade</a></li>
+      <li><a href="docs/Especificacao_UC06.pdf" target="_blank" rel="noopener"><b>UC06</b>Visualizar Relatórios Executivos</a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 5. TELAS E VÍDEO -->
+<section id="telas">
+  <div class="caixa">
+    <div class="cab"><span class="num">05</span><h2>Telas e vídeo</h2></div>
+
+    <!-- PRINTS: salve os arquivos na pasta "telas" com os nomes abaixo -->
+    <div class="telas">
+      <figure class="tela"><a href="telas/painel.png" target="_blank" rel="noopener"><img src="telas/painel.png" alt="Tela do painel operacional"></a><figcaption><b>Painel operacional</b><span>Indicadores, entregas críticas, capacidade e log de atividades (UC04)</span></figcaption></figure>
+      <figure class="tela"><a href="telas/projetos.png" target="_blank" rel="noopener"><img src="telas/projetos.png" alt="Tela de gestão de projetos"></a><figcaption><b>Gestão de projetos</b><span>Lista com filtros, incluindo inativos, cadastro, edição e exclusão (UC01)</span></figcaption></figure>
+      <figure class="tela"><a href="telas/tarefas.png" target="_blank" rel="noopener"><img src="telas/tarefas.png" alt="Tela da central de tarefas"></a><figcaption><b>Central de tarefas</b><span>Backlog com filtros e a opção "Mover para" de andamento (UC02 e UC03)</span></figcaption></figure>
+      <figure class="tela"><a href="telas/equipe.png" target="_blank" rel="noopener"><img src="telas/equipe.png" alt="Tela de capacidade da equipe"></a><figcaption><b>Equipe</b><span>Tarefas atribuídas e concluídas por colaborador</span></figcaption></figure>
+      <figure class="tela"><a href="telas/relatorios.png" target="_blank" rel="noopener"><img src="telas/relatorios.png" alt="Tela de relatórios operacionais"></a><figcaption><b>Relatórios</b><span>Taxa de conclusão, tempo médio, atrasos e produtividade por responsável (UC06)</span></figcaption></figure>
+    </div>
+
+    <h3 class="tit" style="margin-top:36px">Vídeo de demonstração</h3>
+    <div class="video">
+      <iframe src="https://www.youtube.com/embed/zaNvFAlyhhg" title="Demonstração do SGTP" allow="fullscreen; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- 6. RELATÓRIO DE ESTÁGIO -->
+<section id="relatorio">
+  <div class="caixa">
+    <div class="cab"><span class="num">06</span><h2>Relatório de Estágio</h2></div>
+    <p>Relatório atualizado com as atividades desenvolvidas até a entrega deste portfólio: modelagem do sistema, especificações dos seis casos de uso, diagramas e implementação.</p>
+    <a class="botao" href="docs/Relatorio_de_Estagio.pdf" target="_blank" rel="noopener">Abrir o Relatório de Estágio (PDF)</a>
+    <div class="pdf"><iframe src="docs/Relatorio_de_Estagio.pdf" title="Relatório de Estágio em PDF"></iframe></div>
+  </div>
+</section>
+
+<!-- 7. IDENTIFICAÇÃO DO ALUNO -->
+<section id="aluno">
+  <div class="caixa">
+    <div class="cab"><span class="num">07</span><h2>Identificação do aluno</h2></div>
+    <dl class="ficha">
+      <div><dt>Nome completo</dt><dd>João Pedro De Souza Marin</dd></div>
+      <div><dt>Matrícula</dt><dd>242041011</dd></div>
+      <div><dt>Professora orientadora</dt><dd>Simone Sawasaki Tanaka</dd></div>
+    </dl>
+    <p class="nota">Ciência da Computação · Centro Universitário Filadélfia (UniFil) · Estágio realizado na Alliance Consultoria.</p>
+  </div>
+</section>
+
+</main>
+
+<footer><div class="caixa">SGTP · Portfólio do Projeto de Estágio · 2026</div></footer>
+
+<script>
+  // Enquanto um print não for enviado, mostra um aviso no lugar da imagem quebrada.
+  document.querySelectorAll('.tela img').forEach(function (img) {
+    function pendente() {
+      var aviso = document.createElement('div');
+      aviso.className = 'pendente';
+      aviso.style.aspectRatio = '16 / 9';
+      aviso.style.background = 'var(--painel-2)';
+      aviso.textContent = 'Print pendente: ' + img.getAttribute('src');
+      img.parentNode.replaceWith(aviso);
+    }
+    if (img.complete && img.naturalWidth === 0) pendente();
+    else img.addEventListener('error', pendente);
+  });
+</script>
+</body>
+</html>
