@@ -12,14 +12,7 @@ PORTFÓLIO SGTP – COMO PUBLICAR NO GITHUB PAGES
 O QUE FALTA VOCÊ COLOCAR
 
 PRINTS (pasta "telas", com exatamente estes nomes):
-  painel.png      projetos.png    tarefas.png
-  andamento.png   restaurar.png   relatorios.png
-
-VÍDEO (até 5 minutos):
-  Suba no YouTube como "Não listado". No index.html, procure "COLE_O_ID_AQUI",
-  troque pelo código do vídeo (o trecho depois de "v=" no link),
-  tire os sinais <!-- e --> em volta da linha do iframe
-  e apague a linha que tem "video-pendente".
+  painel.png, projetos.png, tarefas.png, equipe.png e relatorios.png já estão na pasta.
 
 DATAS DO CRONOGRAMA:
   No index.html, procure "AJUSTE AS DATAS" e confira as seis datas.
