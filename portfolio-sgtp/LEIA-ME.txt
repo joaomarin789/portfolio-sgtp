@@ -1,0 +1,34 @@
+PORTFÓLIO SGTP – COMO PUBLICAR NO GITHUB PAGES
+
+1. Crie um repositório PÚBLICO no GitHub chamado: portfolio-sgtp
+2. Na página do repositório, clique em "uploading an existing file"
+   (ou Add file > Upload files) e arraste TODO o conteúdo desta pasta:
+   index.html e as pastas diagramas, docs e telas.
+3. Clique em "Commit changes".
+4. Vá em Settings > Pages. Em "Branch", escolha "main" e a pasta "/ (root)". Salve.
+5. Espere 1 a 2 minutos. O link será:
+   https://SEU-USUARIO.github.io/portfolio-sgtp/
+
+O QUE FALTA VOCÊ COLOCAR
+
+PRINTS (pasta "telas", com exatamente estes nomes):
+  painel.png      projetos.png    tarefas.png
+  andamento.png   restaurar.png   relatorios.png
+
+VÍDEO (até 5 minutos):
+  Suba no YouTube como "Não listado". No index.html, procure "COLE_O_ID_AQUI",
+  troque pelo código do vídeo (o trecho depois de "v=" no link),
+  tire os sinais <!-- e --> em volta da linha do iframe
+  e apague a linha que tem "video-pendente".
+
+DATAS DO CRONOGRAMA:
+  No index.html, procure "AJUSTE AS DATAS" e confira as seis datas.
+
+RELATÓRIO:
+  O PDF em docs/Relatorio_de_Estagio.pdf foi gerado automaticamente.
+  Antes de entregar, atualize o sumário no Word, exporte o PDF de lá
+  e substitua o arquivo, mantendo o mesmo nome.
+
+ANTES DE ENTREGAR
+  Abra o link numa janela anônima e clique em todos os diagramas,
+  nos seis PDFs, no relatório e no vídeo.
